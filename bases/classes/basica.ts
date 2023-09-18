@@ -16,11 +16,13 @@
 
     const antman: Avenger = new Avenger('Antman','Capitan');
 
+    /*
     console.log(antman)
 
-    //Asi puede acceder ana propiedad de uns instancia 
+    //Asi puede acceder a la propiedad de una instancia 
     console.log(antman.realName)
 
     //Las porpopuedades estáticas se consutal a la clase, no a las instancias
     //console.log(Avenger.avgAge)
+    */
 })()
