@@ -1,8 +1,8 @@
 # **CURSO DE TYPESCRIPT DE DEVTELLES**
 
-## **CREANDO EL ENTORNO DEL CURSO**
+## **Creando el entorno del curso**
 
-```text
+```bash
 mkdir TypeScript
 cd TypeScript
 mkdir bases 
@@ -37,7 +37,7 @@ npm install -g typescript
  y comprobamos que se haya instalado correctamente: 
  ```
 
- ```bash
+```bash
   tsc --version
 ```
 
@@ -78,7 +78,7 @@ const msg: string = 'Hola mundo';
 console.log(msg);
 ```
 
-## **Transpilación de archivos"
+## **Transpilación de archivos**
 
 ```text
 La transpilación es un proceso de traducción de  lenguaje: de typescript a javascritp.
