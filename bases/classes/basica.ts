@@ -1,5 +1,4 @@
 (()=>{
-
     class Avenger {
 
         //private name: string;
@@ -24,6 +23,7 @@
 
     const antman: Avenger = new Avenger('Antman','Capitan','Scott Lang');
 
+    /*
     console.log(antman)
 
     //Asi puede acceder a la propiedad de una instancia 
@@ -31,7 +31,6 @@
 
     //Las propiedades estáticas se consutan a la clase, no a las instancias
     //console.log(Avenger.avgAge)
-
-    console.log(antman.bio())
+    */
 
 })()
