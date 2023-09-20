@@ -1,6 +1,8 @@
 (()=>{
 
     /**
+     * NOTA: Descomenta los console.log para ver el funcionamiento de las clases, y los geters y seters
+     * 
      * Direrencia entre privated  protected:
      * 
      * private: solo puedes acceder a dichas propiedades desde las clase donde se declaró
@@ -11,13 +13,12 @@
      * Los getters siempre deben regresar algo mediante un return
      */
 
-
     class Avenger {
         constructor(
             public name: string,
             public realName: string,
         ){
-            console.log('Contructor Avenger llamado!')
+            //console.log('Contructor Avenger llamado!')
         }
 
         //le ponemos protected para que el metodo sea accesible desde una clase extendida
@@ -36,11 +37,11 @@
             //Pasamos los argumentos al padre, siempre debe ser lo primero que se pase
             //de lo contrario marcará error.
             super( name, realName)
-            console.log('Constructor Xmen llamado');
+            //console.log('Constructor Xmen llamado');
         }
 
         getFullnameDesdeXmen() {
-            console.log( super.getFullname() )
+            //console.log( super.getFullname() )
         }
 
         //getter: Método que obtiene un valor
@@ -48,16 +49,13 @@
             return `${ this.name } - ${ this.realName }`;
         }
 
-        //Seter: Método que establece un valor
+        //Seter: Método que establece un valor, espera un argumento
         set fullname( name: string) {
             if ( name.length < 3){
                 throw new Error('El nombre debe ser mayor a 3 letras')
             }else
                 this.name = name;
         }
-
-
-
     }
 
     const wolverine = new Xmen('Wolverine','Logan',true)
@@ -68,5 +66,5 @@
     wolverine.name = 'Chemo';
 
     // Así uso un getter
-    console.log(wolverine.fullname)
+    // console.log(wolverine.fullname)
 })()

@@ -1,5 +1,17 @@
 "use strict";
 (() => {
+    class Mutante {
+        constructor(name, realName) {
+            this.name = name;
+            this.realName = realName;
+        }
+    }
+    class Xmen extends Mutante {
+    }
+    const wolverine = new Xmen('Wolverine', 'Logan');
+    console.log(wolverine);
+})();
+(() => {
     class Avenger {
         constructor(name, team, realName) {
             this.name = name;
@@ -18,7 +30,6 @@
         constructor(name, realName) {
             this.name = name;
             this.realName = realName;
-            console.log('Contructor Avenger llamado!');
         }
         getFullname() {
             return `${this.name} ${this.realName}`;
@@ -28,10 +39,8 @@
         constructor(name, realName, isMutant) {
             super(name, realName);
             this.isMutant = isMutant;
-            console.log('Constructor Xmen llamado');
         }
         getFullnameDesdeXmen() {
-            console.log(super.getFullname());
         }
         get fullname() {
             return `${this.name} - ${this.realName}`;
@@ -46,6 +55,5 @@
     }
     const wolverine = new Xmen('Wolverine', 'Logan', true);
     wolverine.name = 'Chemo';
-    console.log(wolverine.fullname);
 })();
 //# sourceMappingURL=main.js.map
