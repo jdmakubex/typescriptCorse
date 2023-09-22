@@ -1,108 +1,104 @@
-(() => {
-
-type auto = {
-  carroceria: string;
-  modelo: string;
-  antibalas: boolean;
-  pasajeros: number;
-  disparar?: () => void;
-}
-
-console.log("pasó por aqui")
-
-  // Objetos
-const batimovil: auto = {
-  carroceria: "Negra",
-  modelo: "6x6",
-  antibalas: true,
-  pasajeros:4
-};
-
-const bumblebee: auto = {
-  carroceria: "Amarillo con negro",
-  modelo: "4x2",
-  antibalas: true,
-  pasajeros:4,
-  disparar(){ // El metodo disparar es opcional
-    console.log("Disparando");
-  }
-};
-
 /**
- * Así se declara un arreglode objetos personalizado
+ * Tema: Interfaces
  */
 
-//Mi solución
-// Villanos debe de ser un arreglo de objetos personalizados
-// type Villanos = {
-//   nombre:string;
-//   edad?: (number | undefined);
-//   mutante:boolean;
-// }[];
-// const villanos: Villanos = [{
-//   nombre:"Lex Luthor",
-//   edad: 54,
-//   mutante:false
-// },{
-//   nombre: "Erik Magnus Lehnsherr",
-//   edad: 49,
-//   mutante: true
-// },{
-//   nombre: "James Logan",
-//   edad: undefined,
-//   mutante: true
-// }];
 
+// Crear interfaces
 
-//solución del curso
-type Villanos = {
-  nombre:string;
-  edad?: (number | undefined);
-  mutante:boolean;
-};
+// Cree una interfaz para validar el auto (el valor enviado por parametro)
+//Solucion: Solo creamos la interface Auto, declaranto los tipos e cada atributo y el metodo
+interface Auto {
+  encender: boolean;
+  velocidadMaxima: number;
+  acelerar():void;
+}
+//fin Solucion.
 
-const villanos: Villanos[] = [{
-  nombre:"Lex Luthor",
-  edad: 54,
-  mutante:false
-},{
-  nombre: "Erik Magnus Lehnsherr",
-  edad: 49,
-  mutante: true
-},{
-  nombre: "James Logan",
-  edad: undefined,
-  mutante: true
-}];
-
-// Multiples tipos
-// cree dos tipos, uno para charles y otro para apocalipsis
-type Charles = {
-  poder: string;
-  estatura: number;
-};
-
-type Apocalipsis = {
-  lider:boolean;
-  miembros: string[];
+const conducirBatimovil = ( auto:Auto ):void => {
+  auto.encender = true;
+  auto.velocidadMaxima = 100;
+  auto.acelerar();
 }
 
-const charles: Charles = {
-  poder:"psiquico",
-  estatura: 1.78
-};
-
-const apocalipsis: Apocalipsis = {
-  lider:true,
-  miembros: ["Magneto","Tormenta","Psylocke","Angel"]
+const batimovil = {
+  encender:false,
+  velocidadMaxima:0,
+  acelear(){
+    console.log("...... gogogo!!!");
+  }
 }
 
-// Mystique, debe poder ser cualquiera de esos dos mutantes (charles o apocalipsis)
-let mystique: (Charles | Apocalipsis);
+// Cree una interfaz con que permita utilzar el siguiente objeto
+// utilizando propiedades opcionales
 
-mystique = charles;
-mystique = apocalipsis;
+//Solucion: Declaramos la interface Guason, declarando cada atributo como opcional y definiendo su tipado
+interface Guason {
+  reir?: boolean;
+  comer?:boolean;
+  llorar?: boolean;
+}
+//Fin solucion
 
-console.log("pasó por allá")
+const guason: Guason = {
+  reir: true,
+  comer:true,
+  llorar:false
+}
 
-})()
+const reir = ( guason: Guason ):void => {
+  if( guason.reir ){
+    console.log("JAJAJAJA");
+  }
+}
+
+
+// Cree una interfaz para la siguiente funcion
+
+//Solución: Solo se  crea la  interface CiudadGoticaFN del método
+interface CiudadGoticaFN {
+  (ciudadanos : string[]):number
+}
+//Fin solucón
+
+const ciudadGotica: CiudadGoticaFN = ( ciudadanos:string[] ):number => {
+  return ciudadanos.length;
+}
+
+// Cree una interfaz que obligue crear una clase
+// con las siguientes propiedades y metodos
+
+// Solución: Se crea la interface: PersonaIterface con sus atribudos con tipos definidos
+interface PersonaIterface {
+  nombre: string;
+  edad: number
+  sexo: string;
+  estadoCivil: string;
+  imprimirBio(): void // en consola una breve descripcion.
+}
+
+/*
+  propiedades:
+    - nombre
+    - edad
+    - sexo
+    - estadoCivil
+    - imprimirBio(): void // en consola una breve descripcion.
+*/
+class Persona  implements PersonaIterface{
+  nombre: string;
+  edad: number
+  sexo: string;
+  estadoCivil: string;
+
+  //No olvide crear el contructor de la clase, para que no marque errores
+  constructor(nombre: string, edad: number, sexo: string, estadoCivil:string) {
+    this.nombre = nombre;
+    this.edad = edad;
+    this.sexo = sexo;
+    this.estadoCivil =  estadoCivil
+  }
+  imprimirBio(): void {
+    
+  }
+
+}
