@@ -110,6 +110,6 @@
     "seccion6/*.ts"
   ],
   "include": [
-    "interfaces"
+    "namespaces"
   ]
 }
